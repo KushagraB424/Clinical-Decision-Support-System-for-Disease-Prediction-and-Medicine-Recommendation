@@ -45,30 +45,6 @@ This project is an AI-powered **clinical decision support system** that predicts
 
 ---
 
-## Project Structure
-
-medicine_recommendation/
-│
-├── data/
-│ └── dataset.csv
-│
-├── model/
-│ ├── train_model.py
-│ ├── predict.py
-│ ├── model.pkl
-│ └── symptom_encoder.pkl
-│
-├── app.py
-│
-├── templates/
-│ └── index.html
-│
-├── static/
-│ ├── style.css
-│ └── script.js
-│
-└── requirements.txt
-
 ## How It Works
 1. User enters symptoms through the web interface.
 2. Symptoms are encoded and passed to the trained machine learning model.
