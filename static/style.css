@@ -1,0 +1,114 @@
+/* Reset some default spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Page background */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    min-height: 100vh;
+
+    /* 🔹 Background image placeholder */
+    background-image: url("/static/AdobeStock_171882033.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main container */
+.container {
+    background: rgba(0, 0, 0, 0.75); /* transparent dark overlay */
+    color: #ffffff;
+    width: 90%;
+    max-width: 700px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+/* Heading */
+h1 {
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+    color: #00e5ff;
+}
+
+/* Input box */
+input {
+    width: 80%;
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+/* Button */
+button {
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, crimson, darkred);
+    color: white;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
+}
+
+/* Result card */
+#result {
+    margin-top: 25px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+/* Section headings inside result */
+#result h3 {
+    color: crimson;
+    margin-bottom: 8px;
+}
+
+#result h4 {
+    margin-top: 15px;
+    color: #333;
+}
+
+/* Lists */
+#result ul {
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+/* Warning (low confidence) */
+.warning {
+    color: #d32f2f;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* Emergency banner */
+.emergency {
+    background-color: #d50000;
+    color: white;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-align: center;
+}
