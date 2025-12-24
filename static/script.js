@@ -1,3 +1,27 @@
+// Toggle display for lists at the bottom
+function toggleList(id) {
+    var el = document.getElementById(id);
+    if (el.style.display === "none" || el.style.display === "") {
+        el.style.display = "block";
+    } else {
+        el.style.display = "none";
+    }
+}
+function renderList(items) {
+    if (!items) return "";
+    
+    // If backend sent a stringified list
+    if (typeof items === "string") {
+        items = items.replace("[", "")
+                     .replace("]", "")
+                     .replace(/'/g, "")
+                     .split(",");
+    }
+
+    return `<ul>${items.map(i => `<li>${i.trim()}</li>`).join("")}</ul>`;
+}
+
+
 function predict() {
     const symptoms = document.getElementById("symptoms").value;
 
@@ -37,9 +61,15 @@ function predict() {
             ${reasonsList}
             <p><b>Description:</b> ${data.description}</p>
             <p><b>Precaution:</b> ${data.precaution}</p>
-            <p><b>Medicines:</b> ${data.medications}</p>
-            <p><b>Workout:</b> ${data.workout}</p>
-            <p><b>Diet:</b> ${data.diet}</p>
+            <p><b>Medicines:</b></p>
+            ${renderList(data.medications)}
+
+            <p><b>Diet:</b></p>
+            ${renderList(data.diet)}
+
+            <p><b>Workout:</b></p>
+            ${renderList(data.workout)}
+
         `;
     });
 }
