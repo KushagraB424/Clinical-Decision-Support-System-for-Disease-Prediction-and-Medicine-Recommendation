@@ -15,9 +15,28 @@
         <br>
         <button onclick="predict()">Predict</button>
 
-        <div id="result"></div>
     </div>
 
     <script src="/static/script.js"></script>
 </body>
+
+<div style="position: fixed; left: 0; right: 0; bottom: 0; background: #f9f9f9; border-top: 1px solid #ddd; padding: 16px 0 0 0; z-index: 100;">
+    <div style="max-width: 900px; margin: 0 auto; padding: 0 16px;">
+        <button onclick="toggleList('symptom-list')" style="margin: 8px; padding: 8px 16px; border-radius: 5px; border: 1px solid #007bff; background: #007bff; color: #fff; cursor: pointer;">Show/Hide Symptoms</button>
+        <button onclick="toggleList('disease-list')" style="margin: 8px; padding: 8px 16px; border-radius: 5px; border: 1px solid #28a745; background: #28a745; color: #fff; cursor: pointer;">Show/Hide Diseases</button>
+        <div id="symptom-list" style="display: none; margin-top: 16px; columns: 2; max-height: 200px; overflow-y: auto;">
+            <h3>Symptoms</h3>
+            <ul style="font-size: 15px;">
+                <li>itching</li><li>skin_rash</li><li>nodal_skin_eruptions</li><li>continuous_sneezing</li><li>shivering</li><li>chills</li><li>joint_pain</li><li>stomach_pain</li><li>acidity</li><li>ulcers_on_tongue</li><li>muscle_wasting</li><li>vomiting</li><li>burning_micturition</li><li>spotting_ urination</li><li>fatigue</li><li>weight_gain</li><li>anxiety</li><li>cold_hands_and_feets</li><li>mood_swings</li><li>weight_loss</li><li>restlessness</li><li>lethargy</li><li>patches_in_throat</li><li>irregular_sugar_level</li><li>cough</li><li>high_fever</li><li>sunken_eyes</li><li>breathlessness</li><li>sweating</li><li>dehydration</li><li>indigestion</li><li>headache</li><li>yellowish_skin</li><li>dark_urine</li><li>nausea</li><li>loss_of_appetite</li><li>pain_behind_the_eyes</li><li>back_pain</li><li>constipation</li><li>abdominal_pain</li><li>diarrhoea</li><li>mild_fever</li><li>yellow_urine</li><li>yellowing_of_eyes</li><li>acute_liver_failure</li><li>fluid_overload</li><li>swelling_of_stomach</li><li>swelled_lymph_nodes</li><li>malaise</li><li>blurred_and_distorted_vision</li><li>phlegm</li><li>throat_irritation</li><li>redness_of_eyes</li><li>sinus_pressure</li><li>runny_nose</li><li>congestion</li><li>chest_pain</li><li>weakness_in_limbs</li><li>fast_heart_rate</li><li>pain_during_bowel_movements</li><li>pain_in_anal_region</li><li>bloody_stool</li><li>irritation_in_anus</li><li>neck_pain</li><li>dizziness</li><li>cramps</li><li>bruising</li><li>obesity</li><li>swollen_legs</li><li>swollen_blood_vessels</li><li>puffy_face_and_eyes</li><li>enlarged_thyroid</li><li>brittle_nails</li><li>swollen_extremeties</li><li>excessive_hunger</li><li>extra_marital_contacts</li><li>drying_and_tingling_lips</li><li>slurred_speech</li><li>knee_pain</li><li>hip_joint_pain</li><li>muscle_weakness</li><li>stiff_neck</li><li>swelling_joints</li><li>movement_stiffness</li><li>spinning_movements</li><li>loss_of_balance</li><li>unsteadiness</li><li>weakness_of_one_body_side</li><li>loss_of_smell</li><li>bladder_discomfort</li><li>foul_smell_of urine</li><li>continuous_feel_of_urine</li><li>passage_of_gases</li><li>internal_itching</li><li>toxic_look_(typhos)</li><li>depression</li><li>irritability</li><li>muscle_pain</li><li>altered_sensorium</li><li>red_spots_over_body</li><li>belly_pain</li><li>abnormal_menstruation</li><li>dischromic _patches</li><li>watering_from_eyes</li><li>increased_appetite</li><li>polyuria</li><li>family_history</li><li>mucoid_sputum</li><li>rusty_sputum</li><li>lack_of_concentration</li><li>visual_disturbances</li><li>receiving_blood_transfusion</li><li>receiving_unsterile_injections</li><li>coma</li><li>stomach_bleeding</li><li>distention_of_abdomen</li><li>history_of_alcohol_consumption</li><li>fluid_overload</li><li>blood_in_sputum</li><li>prominent_veins_on_calf</li><li>palpitations</li><li>painful_walking</li><li>pus_filled_pimples</li><li>blackheads</li><li>scurring</li><li>skin_peeling</li><li>silver_like_dusting</li><li>small_dents_in_nails</li><li>inflammatory_nails</li><li>blister</li><li>red_sore_around_nose</li><li>yellow_crust_ooze</li>
+            </ul>
+        </div>
+        <div id="disease-list" style="display: none; margin-top: 16px; columns: 2; max-height: 200px; overflow-y: auto;">
+            <h3>Diseases Predicted</h3>
+            <ul style="font-size: 15px;">
+                <li>Fungal infection</li><li>Allergy</li><li>GERD</li><li>Chronic cholestasis</li><li>Diabetes</li><li>Gastroenteritis</li><li>Bronchial Asthma</li><li>Hypertension</li><li>Migraine</li><li>Cervical spondylosis</li><li>Paralysis (brain hemorrhage)</li><li>Jaundice</li><li>Malaria</li><li>Chicken pox</li><li>Dengue</li><li>Typhoid</li><li>hepatitis A</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</html>
 </html>
