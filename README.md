@@ -5,6 +5,9 @@ This project is an AI-powered **clinical decision support system** that predicts
 
 ---
 
+## Live Demo
+https://clinical-decision-support-system-for.onrender.com
+
 ## Key Features
 
 ### Disease Prediction using Machine Learning
