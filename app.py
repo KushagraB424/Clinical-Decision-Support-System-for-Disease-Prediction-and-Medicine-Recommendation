@@ -1,9 +1,13 @@
-from flask import Flask, render_template, request, jsonify
+from fastapi import FastAPI, Request
+from fastapi.templating import Jinja2Templates
+from pydantic import BaseModel
 import pandas as pd
 from model.predict import predict_disease_with_explanation
 
-app = Flask(__name__)
+app = FastAPI()
 
+# Set up the template directory
+templates = Jinja2Templates(directory="templates")
 
 # Load all relevant data files
 desc_df = pd.read_csv("data/description.csv")
@@ -24,20 +28,24 @@ EMERGENCY_SYMPTOMS = {
 def check_emergency(symptoms):
     return any(symptom in EMERGENCY_SYMPTOMS for symptom in symptoms)
 
-@app.route("/")
-def home():
-    return render_template("index.html")
+# Define a Pydantic model for the incoming JSON request
+class SymptomRequest(BaseModel):
+    symptoms: str
 
-@app.route("/predict", methods=["POST"])
-def predict():
-    symptoms = request.json["symptoms"].split(",")
+@app.get("/")
+def home(request: Request):
+    # FastAPI requires passing the 'request' context to templates
+    return templates.TemplateResponse("index.html", {"request": request})
+
+@app.post("/predict")
+def predict(payload: SymptomRequest):
+    # Pydantic automatically parses the JSON, so we just access the attribute
+    symptoms = payload.symptoms.split(",")
 
     disease, confidence, reasons = predict_disease_with_explanation(symptoms)
 
-
     consult_doctor = bool(confidence < LOW_CONFIDENCE_THRESHOLD)
     emergency = bool(check_emergency(symptoms))
-
 
     # Get description
     desc_row = desc_df[desc_df["Disease"] == disease]
@@ -62,7 +70,8 @@ def predict():
     workout_rows = workout_df[workout_df["disease"] == disease]
     workout = workout_rows["workout"].tolist() if not workout_rows.empty else []
 
-    return jsonify({
+    # FastAPI automatically serializes Python dictionaries to JSON responses
+    return {
         "disease": disease,
         "confidence": round(confidence * 100, 2),
         "reasons": reasons,
@@ -73,7 +82,9 @@ def predict():
         "medications": medications,
         "workout": workout,
         "diet": diet
-    })
+    }
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    import uvicorn
+    # Replaces app.run(debug=True)
+    uvicorn.run("app:app", host="127.0.0.1", port=5000, reload=True)
